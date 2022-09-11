@@ -1,0 +1,50 @@
+<header class="menu">
+    <div class="container_header">
+        <div class="logo">
+            <a href="{{ path('home_page') }}">
+                <img src="{{ asset('img/logo/phpantry_logo.svg') }}" alt="logo phpantry">
+            </a>
+        </div>
+        <div id="toggle_menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="sr-only">toggle navigation</div>
+        </div>
+        <nav class="navigation">
+            <ul class="menu_items">
+                <li>
+                    <a href="{{ path('home_page') }}"
+                       class="menu_item {% if app.request.attributes.get('_route') is same as("home_page") %}link_active{% endif %}">home</a>
+                </li>
+                <li>
+                    <a href="{{ path('jobs_index') }}"
+                       class="menu_item {% if app.request.attributes.get('_route') is same as("jobs_index") %}link_active{% endif %}">jobs</a>
+                </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li>
+                        <a class="menu_item {% if app.request.attributes.get('_route') is same as("jobs_create") %}link_active{% endif %}"
+                           href="{{ path('jobs_create') }}">create job</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('account_index') }}"
+                           class="menu_item {% if app.request.attributes.get('_route') starts with "account" %}link_active{% endif %}">my
+                            account</a>
+                    </li>
+                    <li>
+                        <a id="logout_btn" class="navbar_btn" href="{{ path('logout') }}">sign out</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="menu_item" href="{{ path('user_login') }}">sign in</a>
+                    </li>
+                    <li>
+                        <a id="register_btn" class="navbar_btn" href="{{ path('user_registration') }}">
+                            create an account
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>

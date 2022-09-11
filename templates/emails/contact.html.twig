@@ -1,0 +1,36 @@
+{% extends '@GremoZurbInk/foundation-emails/base.html.twig' %}
+{% block content %}
+    <style type="text/css">
+        .header {
+            background: #f3f3f3;
+        }
+
+        .header .columns {
+            padding-bottom: 0;
+        }
+
+        .header p {
+            margin-bottom: 0;
+        }
+
+        .header .wrapper-inner {
+            padding: 20px; /*controls the height of the header*/
+        }
+
+    </style>
+    <!-- move the above styles into your custom stylesheet -->
+    <container>
+        <wrapper class="header">
+            <spacer size="16"></spacer>
+            <row>
+                <columns small="12" large="12">
+                    <h5>Contact Info:</h5>
+                    <p>Name: {{ contact.name }}</p>
+                    <p>Email: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+                    <p>Message:</p>
+                    <p>{{ contact.message }}</p>
+                </columns>
+            </row>
+        </wrapper>
+    </container>
+{% endblock %}

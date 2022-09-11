@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+
+{% block body %}
+    <section id="wrapper" class="login_form">
+        <div id="left">
+            <div id="signin">
+                <h1>Sign In</h1>
+                <a class="back_home" href="{{ path('home_page') }}"><i class="fas fa-home"></i> back to home</a>
+                {#                    A faire personaliser champ error#}
+                {% if error %}
+                    <div class="alert_form">{{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+                <form method="POST">
+                    <div>
+                        <label for="inputEmail">Email</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                               class="text_input"
+                               placeholder="Type your email address" required autofocus>
+                    </div>
+                    <div>
+                        <label for="inputPassword">Password</label>
+                        <input type="password" name="password" id="inputPassword" class="password_input"
+                               placeholder="Type your password" required>
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <button class="btn_primary" type="submit">Sign in</button>
+                    <input type="checkbox" id="remember_me" name="_remember_me">
+                    <label for="remember_me">Keep me logged in</label>
+
+                </form>
+                <div class="links">
+                    <a href="{{ path('password_recovery') }}">password recovery</a>
+                    <a href="{{ path('user_registration') }}">create an account</a>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="showcase">
+                <a href="{{ path('user_registration') }}">
+                    <h2 class="showcase_text">Create an account</h2>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

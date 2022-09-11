@@ -1,0 +1,25 @@
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.site_content {
+    flex: 1;
+}
+
+.admin h1 {
+    text-transform: capitalize;
+    margin: 2rem 0;
+}
+
+.admin_container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (max-width: 990px) {
+    .site_view {
+        padding-bottom: 0.6rem;
+    }
+}

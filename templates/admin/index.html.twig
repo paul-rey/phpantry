@@ -1,0 +1,26 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+{% block body %}
+    <section class="admin">
+        <div class="admin_container">
+            <h1>admin dashboard</h1>
+        </div>
+        <div class="row admin_container">
+            <div class="card text-white bg-success mr-5 mb-3" style="max-width: 25rem;">
+                <div class="card-header"><i class="far fa-user"></i> Users: {{ users_count }}</div>
+                <div class="card-body">
+                    <p class="card-text"><a class="text-white" href="{{ path('admin_users') }}">View users</a></p>
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3" style="max-width: 25rem;">
+                <div class="card-header"><i class="far fa-newspaper"></i> Jobs: {{ jobs_count }}</div>
+                <div class="card-body">
+                    <p class="card-text"><a class="text-white" href="{{ path('admin_jobs') }}">View jobs</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

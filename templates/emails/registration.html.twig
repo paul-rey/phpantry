@@ -1,0 +1,52 @@
+{% extends '@GremoZurbInk/foundation-emails/base.html.twig' %}
+{% block content %}
+    <style type="text/css">
+        body,
+        html,
+        .body {
+            background: #f3f3f3 !important;
+        }
+        .header {
+            background: #f3f3f3;
+        }
+    </style>
+    <!-- move the above styles into your custom stylesheet -->
+
+    <spacer size="16"></spacer>
+
+    <container>
+
+        <row class="header">
+            <columns>
+
+                <spacer size="16"></spacer>
+
+                <h4 class="text-center">PHPantry.com</h4>
+            </columns>
+        </row>
+        <row>
+            <columns>
+
+                <spacer size="32"></spacer>
+
+                <center>
+                    <img src="https://i.imgur.com/IDMoL4c.png"
+                         alt="logo phpantry"
+                         width="50"
+                         border="0"
+                    >
+                </center>
+
+                <spacer size="16"></spacer>
+
+                <h1 class="text-center">Welcome!</h1>
+
+                <spacer size="16"></spacer>
+
+                <p class="text-center">To verify your account please clink on the link below.</p>
+                <button class="large expand" href="http://127.0.0.1:8000/verify/{{ user.token }}">Verify your account</button>
+            </columns>
+        </row>
+        <spacer size="16"></spacer>
+    </container>
+{% endblock %}

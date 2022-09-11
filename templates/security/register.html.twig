@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+
+{% block body %}
+    <section id="registration" class="registration_form">
+        <h1>Register</h1>
+        <a class="back_home" href="{{ path('home_page') }}"><i class="fas fa-home"></i> back to home</a>
+        <div class="register_form">
+            {{ form_start(form) }}
+            {{ form_row(form.username, {'class': 'username_register'}) }}
+            {{ form_row(form.email, {'class': 'email_register'}) }}
+            {{ form_row(form.password, {'class': 'password_register'}) }}
+            <button class="btn_primary" type="submit">Register</button>
+            {{ form_end(form) }}
+            <div class="links">
+                <p>Already have an account? <a href="{{ path('user_login') }}">sign
+                        in</a></p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

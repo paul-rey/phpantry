@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {# favicon #}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    {# bootstrap css #}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {# font awesome cdn #}
+    <script src="https://kit.fontawesome.com/006eba1fe6.js"></script>
+    {# theme bootswatch css #}
+    <link rel="stylesheet" href="{{ asset('css/admin/bootswatch.css') }}">
+    {# custom admin css #}
+    <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %} | Admin PHPantry</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body class="site">
+{% include 'admin/inc/header.html.twig' %}
+<main class="site_content">
+    {% block body %}{% endblock %}
+</main>
+{% include 'admin/inc/footer.html.twig' %}
+{% include 'admin/inc/scripts.html.twig' %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>
+

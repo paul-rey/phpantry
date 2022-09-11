@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'inc/head.html.twig' %}
+    {% block head %}{% endblock %}
+    <title>{% block title %}{% endblock %} | PHPantry</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body class="site">
+{% include 'inc/nav.html.twig' %}
+<main class="site_content">
+    {% include 'inc/flashMessage.html.twig' %}
+    {% block body %}{% endblock %}
+</main>
+{% include 'inc/footer.html.twig' %}
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('js/main.js') }}"></script>
+</body>
+</html>

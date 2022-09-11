@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+
+{% block body %}
+    <section class="contact">
+        <h1>Send us an email</h1>
+        <a class="back_home" href="{{ path('home_page') }}"><i class="fas fa-home"></i> back to home</a>
+        <div id="contact_form">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn_primary" type="submit">send message</button>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}
+
+
+

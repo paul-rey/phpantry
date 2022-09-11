@@ -1,0 +1,8 @@
+{# gestion message flash #}
+{% for class, messages in app.flashes %}
+    {% for message in messages %}
+        <div style="text-align: center" class="{{ class }}">
+        <p>{{ message }}</p>
+    {% endfor %}
+    </div>
+{% endfor %}

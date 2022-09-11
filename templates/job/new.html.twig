@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+{% block head %}
+    <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
+{% endblock %}
+{% block body %}
+    <section id="create_job">
+        <h1>Post a job</h1>
+        {{ form_start(form) }}
+        <div class="form_control">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+            <small>{{ form_help(form.title) }}</small>
+            <div class="form_error">
+                {{ form_errors(form.title) }}
+            </div>
+        </div>
+        <div class="form_control">
+            {{ form_label(form.company) }}
+            {{ form_widget(form.company) }}
+            <small>{{ form_help(form.company) }}</small>
+            <div class="form_error">
+                {{ form_errors(form.company) }}
+            </div>
+        </div>
+        <div class="form_control">
+            {{ form_label(form.imageFile) }}
+            {{ form_widget(form.imageFile) }}
+            <small>{{ form_help(form.imageFile) }}</small>
+            <div class="form_error">
+                {{ form_errors(form.imageFile) }}
+            </div>
+        </div>
+        <div class="form_control">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+            <small>{{ form_help(form.email) }}</small>
+            <div class="form_error">
+                {{ form_errors(form.email) }}
+            </div>
+        </div>
+        <div class="form_control">
+            {{ form_label(form.location) }}
+            {{ form_widget(form.location) }}
+            <small>{{ form_help(form.location) }}</small>
+            <div class="form_error">
+                {{ form_errors(form.location) }}
+            </div>
+        </div>
+        <div class="form_control">
+            {{ form_label(form.experience) }}
+            {{ form_widget(form.experience) }}
+            <small>{{ form_help(form.experience) }}</small>
+            <div class="form_error">
+                {{ form_errors(form.experience) }}
+            </div>
+        </div>
+        <div class="select_type">
+            <div class="form_select">
+                {{ form_label(form.contract) }}
+                {{ form_widget(form.contract) }}
+                <small>{{ form_help(form.contract) }}</small>
+                <div class="form_error">
+                    {{ form_errors(form.contract) }}
+                </div>
+            </div>
+            <div class="form_select">
+                {{ form_label(form.salary) }}
+                {{ form_widget(form.salary) }}
+                <small>{{ form_help(form.salary) }}</small>
+                <div class="form_error">
+                    {{ form_errors(form.salary) }}
+                </div>
+            </div>
+        </div>
+        <div class="form_control">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            <small>{{ form_help(form.description) }}</small>
+            <div class="form_error">
+                {{ form_errors(form.description) }}
+            </div>
+        </div>
+        <button class="btn_primary" type="submit">Publish</button>
+        {{ form_end(form) }}
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/editor.js') }}"></script>
+{% endblock %}

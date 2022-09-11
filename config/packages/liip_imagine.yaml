@@ -1,0 +1,14 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+  # valid drivers options include "gd" or "gmagick" or "imagick"
+  driver: "gmagick"
+
+  filter_sets:
+    cache: ~
+    # the name of the "filter set"
+    logo:
+      # adjust the image quality to 80%
+      quality: 80
+      # list of transformations to apply (the "filters")
+      filters:
+        thumbnail: { size: [200, 125], mode: inset }

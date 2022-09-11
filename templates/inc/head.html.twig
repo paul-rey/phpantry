@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="author" content=”PaulReybaud”>
+<meta name="designer" content=”PaulReybaud”>
+<meta name="publisher" content=”PaulReybaud”>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="no-email-collection" content="http://www.unspam.com/noemailcollection/">
+<meta name="description" content="MonkeyJob job listing for Symfony Developper">
+<meta name="keywords" content="Symfony,Jobs,Jobs listing,Web developper">
+
+{# favicon #}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicon/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ asset('img/favicon/site.webmanifest') }}">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+{# normalize.css #}
+{% if app.request.attributes.get("_route") != 'jobs_show' %}
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+{% endif %}
+{# font awesome cdn #}
+<script src="https://kit.fontawesome.com/006eba1fe6.js"></script>
+{# custom style #}
+<link rel="stylesheet" href="{{ asset('css/main.min.css') }}">

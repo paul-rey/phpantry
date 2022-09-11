@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+{% block body %}
+    <div class="search_bar">
+        <h1>Find Jobs</h1>
+        {{ form_start(searchBar) }}
+        {{ form_row(searchBar.title) }}
+        <button class="btn_search"><i class="fas fa-search"></i></button>
+        {{ form_end(searchBar) }}
+    </div>
+    <section class="job_listing">
+        {% for job in jobs %}
+            <a href="{{ path('jobs_show' , {'slug': job.slug, 'id': job.id }) }}">
+                <article class="job">
+                    <div class="job_card job_list">
+                        <div class="job_image">
+                            {# if logo null default img  #}
+                            {% if job.filename %}
+                                <img src="{{ asset('img/company_logo/' ~ job.filename) | my_imagine_filter('logo') }}"
+                                     alt="{{ job.filename }} logo">
+                            {% else %}
+                                <img style="color: #4E5B92;" src="{{ asset('img/company_logo/php_logo.svg') }}"
+                                     alt="php logo">
+                            {% endif %}
+                        </div>
+                        <div>
+                            <h4 class="job_title">{{ job.title }}</h4>
+                            <p class="job_company">{{ job.company }}</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <span class="job_createdAt"><i
+                                            class="far fa-calendar-alt"></i> {{ job.createdAt|date('m/d/Y') }}</span>
+                            </li>
+                            <li>
+                            <span class="job_location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span
+                                        class="sr-only">job location</span> {{ job.location }}</span>
+                            </li>
+                            <li>
+                            <span class="job_contract">
+                                <span class="sr-only">contract type</span>
+                                {{ job.contract }}
+                            </span>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </a>
+        {% endfor %}
+        <div class="paginator_nav">
+            {{ knp_pagination_render(jobs) }}
+        </div>
+    </section>
+{% endblock %}
+

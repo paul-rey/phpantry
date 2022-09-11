@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 404 error {% endblock %}
+
+{% block body %}
+    <div class="error_pages">
+        <h1>Error 404</h1>
+        <p>
+            <a href="{{ path('home_page') }}">return to homepage</a>
+        </p>
+    </div>
+{% endblock %}

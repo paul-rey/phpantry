@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+{% endblock %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+{% block body %}
+    <section class="job_single">
+        <article class="job">
+            <div class="job_card_single">
+                <div class="job_primary_info">
+                    <div class="job_image">
+                        {# if logo null default img  #}
+                        {% if job.filename %}
+                            <img src="{{ asset('img/company_logo/' ~ job.filename) | my_imagine_filter('logo') }}"
+                                 alt="{{ job.filename }} logo">
+                        {% else %}
+                            <img style="color: #4E5B92;" src="{{ asset('img/company_logo/php_logo.svg') }}"
+                                 alt="php logo">
+                        {% endif %}
+                    </div>
+                    <div>
+                        <h4 class="job_title">{{ job.title }}</h4>
+                        <p class="job_company">{{ job.company }}</p>
+                    </div>
+                </div>
+                <ul class="job_secondary_info">
+                    <li>
+                        <div class="job_createdAt">
+                            Posted on: {{ job.createdAt|date('m/d/Y') }}
+                        </div>
+                    </li>
+                    <li>
+                        <div class="job_contract">
+                            <span class="sr-only">contract type</span>
+                            {{ job.contract }}
+                        </div>
+                    </li>
+                    <li>
+                        <span class="job_experience">Min Experience: {{ job.experience }} year</span>
+                    </li>
+                    <li>
+                        <div class="job_salary">
+                            <i class="fas fa-money-bill" aria-hidden="true"></i><span
+                                    class="sr-only">salary</span> ${{ job.salary }}
+                        </div>
+                    </li>
+                    <li>
+                        <div class="job_location">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span class="sr-only">job location</span> {{ job.location }}</div>
+                    </li>
+                    <li>
+                        <div class="job_email">
+                            <a href="mailto:{{ job.email }}">Contact Us</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="job_content">
+                Description:
+                <p>{{ job.description | raw }}</p>
+            </div>
+        </article>
+    </section>
+{% endblock %}

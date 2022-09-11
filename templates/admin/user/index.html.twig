@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+{% block title %}{{ title | capitalize }}{% endblock %}
+{% block body %}
+    <section class="admin admin_container">
+        <h1>Users</h1>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-success">
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th><i class="far fa-user"></i> Username</th>
+                    <th><i class="fas fa-at"></i> Email</th>
+                    <th class="text-center"><i class="far fa-newspaper"></i> Jobs</th>
+                    <th><i class="fas fa-edit" title="edit"></i> created at</th>
+                    <th><i class="fas fa-edit" title="edit"></i> updated at</th>
+                    <th>actions</th>
+                    <th> status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td class="text-center">{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td class="text-center"><span
+                                    class="badge badge-pill badge-info">{{ user.jobPosts|length }}</span></td>
+                        <td>{{ user.createdAt|date('d/m/Y H:i ', '+00:00 GMT') }}</td>
+                        <td>{{ user.updatedAt|date('d/m/Y H:i:s ', '+02:00 GMT') }}</td>
+                        <td>
+                            <a href="{{ path('admin_user_edit', {'id': user.id}) }}"><i
+                                        class="fas fa-edit fa-lg text-secondary mr-1" title="edit"></i></a>
+                            <a href="{{ path('admin_user_delete', {'id': user.id}) }}">
+                                <i class="far fa-trash-alt fa-lg text-danger" title="delete"></i>
+                            </a>
+                        </td>
+                        <td>
+                            {% if  user.active  == true %}
+                                active
+                            {% else %}
+                                inactive
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(users) }}
+        </div>
+    </section>
+{% endblock %}
